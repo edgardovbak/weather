@@ -1,0 +1,21 @@
+<div class="current-weather">
+    <div class="current-weather-information">
+        <div class="current-weather-information--top">
+            <h1 class="current-weather-name">{{ cityName }}</h1>
+            <p class="current-weather-rain-chance">Chances of rain {{ chanceOfRain }} %</p>
+        </div>
+        <p class="current-weather-temperature">{{ temperature }}<span >&#8451;</span></p>
+    </div>
+    <div class="current-weather-status">
+        <mat-icon *ngIf="weatherStatus === 'Clear'" class="current-weather-icon">sunny</mat-icon>
+        <mat-icon *ngIf="weatherStatus === 'Clouds'" class="current-weather-icon">cloud</mat-icon>
+        <mat-icon *ngIf="weatherStatus === 'Drizzle'" class="current-weather-icon">ac_unit</mat-icon>
+        <mat-icon *ngIf="weatherStatus === 'Haze'" class="current-weather-icon">foggy</mat-icon>
+        <mat-icon *ngIf="weatherStatus === 'Mist'" class="current-weather-icon">water</mat-icon>
+        <mat-icon *ngIf="weatherStatus === 'Rain'" class="current-weather-icon">cloudy_snowing</mat-icon>
+        <mat-icon *ngIf="weatherStatus === 'Snow'" class="current-weather-icon">snowing</mat-icon>
+        <mat-icon *ngIf="weatherStatus === 'Wind'" class="current-weather-icon">air</mat-icon>
+    </div>
+</div>
+
+

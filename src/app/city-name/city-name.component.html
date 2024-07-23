@@ -1,0 +1,13 @@
+<div class="city-name">
+    <input
+        class="city-name-input"
+        id="userInput"
+        type="text"
+        placeholder="Enter City Name"
+        [(ngModel)]="userInput"
+        (keydown)="onEnter($event)" 
+    />
+    <div *ngIf="errorMessage" class="city-name-error">
+        {{ errorMessage }}
+    </div>
+  </div>

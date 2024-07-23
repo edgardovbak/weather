@@ -1,0 +1,20 @@
+<div class="weather-condition">
+    <div class="weather-condition-left">
+        <mat-icon *ngIf="weatherCondition === 'thermostat'" class="weather-condition-icon">thermostat</mat-icon>
+        <mat-icon *ngIf="weatherCondition === 'wind'" class="weather-condition-icon">air</mat-icon>
+        <mat-icon *ngIf="weatherCondition === 'humidity'" class="weather-condition-icon">humidity_low</mat-icon>
+        <mat-icon *ngIf="weatherCondition === 'pressure'" class="weather-condition-icon">sunny</mat-icon>
+        <ng-template #elseBlock>
+            <mat-icon>question_mark</mat-icon>
+        </ng-template>
+    </div>
+   
+    <div class="weather-condition-right">
+        <p class="weather-condition-name">{{ conditionName }}</p>
+        <p class="weather-condition-value">{{ conditionValue }}
+            <span *ngIf="weatherCondition === 'thermostat'">&#8451;</span>
+            <span *ngIf="weatherCondition === 'wind'">km/h</span>
+            <span *ngIf="weatherCondition === 'humidity'">%</span>
+        </p>
+    </div>
+</div>

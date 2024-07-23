@@ -1,0 +1,14 @@
+<div class="forecast-day">
+    <p class="forecast-day-name">{{ dayName }}</p>
+    <mat-icon *ngIf="wheaterState === 'Clear'" class="forecast-day-icon">sunny</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Clouds'" class="forecast-day-icon">cloud</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Drizzle'" class="forecast-day-icon">ac_unit</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Haze'" class="forecast-day-icon">foggy</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Mist'" class="forecast-day-icon">water</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Rain'" class="forecast-day-icon">cloudy_snowing</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Snow'" class="forecast-day-icon">snowing</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Wind'" class="forecast-day-icon">air</mat-icon>
+    <p class="forecast-day-MinMax">
+      {{ temperature }}
+    </p>
+  </div>

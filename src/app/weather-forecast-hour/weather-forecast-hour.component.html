@@ -1,0 +1,17 @@
+<div class="forecast-hourly">
+    <p class="forecast-hourly-time">{{ hours }}</p>
+
+    <mat-icon *ngIf="wheaterState === 'Clear'" class="forecast-hourly-icon">sunny</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Clouds'" class="forecast-hourly-icon">cloud</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Drizzle'" class="forecast-hourly-icon">ac_unit</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Haze'" class="forecast-hourly-icon">foggy</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Mist'" class="forecast-hourly-icon">water</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Rain'" class="forecast-hourly-icon">cloudy_snowing</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Snow'" class="forecast-hourly-icon">snowing</mat-icon>
+    <mat-icon *ngIf="wheaterState === 'Wind'" class="forecast-hourly-icon">air</mat-icon>
+    
+    <p class="forecast-hourly-temperature">
+      {{ temperature }}
+      <span>&#8451;</span>
+    </p>
+</div>

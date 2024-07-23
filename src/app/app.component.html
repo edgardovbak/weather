@@ -1,0 +1,72 @@
+<div class="weather-app">
+  <app-city-name (inputSubmitted)="onInputSubmitted($event)"></app-city-name>
+  <main class="main">
+    <div *ngIf="weatherData" class="area1">
+      <app-current-weather 
+  
+        [cityName]="submittedCity"
+        [chanceOfRain]="weatherData.main.humidity"
+        [temperature]="weatherData.main.temp"
+        [weatherStatus]="weatherData.weather[0].main"
+      />
+    </div>
+    
+    <div *ngIf="weatherData" class="area2">
+      <app-card-wrapper [title]="'Air Conditions'">
+        <app-weather-condition 
+          [weatherCondition]="'thermostat'" 
+          [conditionName]="'Real Feel'" 
+          [conditionValue]="weatherData.main.feels_like" 
+        >
+        </app-weather-condition>
+        <app-weather-condition 
+          [weatherCondition]="'wind'" 
+          [conditionName]="'Wind'" 
+          [conditionValue]="weatherData.wind.speed" 
+        >
+        </app-weather-condition>
+        <app-weather-condition 
+          [weatherCondition]="'humidity'" 
+          [conditionName]="'Chance of rain'"
+          [conditionValue]="weatherData.main.humidity" 
+        >
+        </app-weather-condition>
+        <app-weather-condition 
+          [weatherCondition]="'pressure'" 
+          [conditionName]="'Presure'" 
+          [conditionValue]="weatherData.main.pressure" 
+        >
+        </app-weather-condition>
+      </app-card-wrapper>
+    </div>
+  
+    <div *ngIf="hourlyForecast" class="area3">
+      <app-card-wrapper [title]="'Weather Forecast'" [cardStyle]="'vertical-content'" >
+        <ng-container *ngFor="let hour of hourlyForecast.list | slice:0:6">
+          <app-weather-forecast-day 
+            [dayName]="hour.dt_txt | time24 "
+            [temperature]="hour.main.temp"
+            [wheaterState]="hour.weather[0].main"
+          />
+        </ng-container>
+      </app-card-wrapper>
+    </div>
+  
+    <!-- This part was for day forecas but its not free in api -->
+    <!-- <div *ngIf="dailyForecast">
+      <app-card-wrapper [title]="'7 days Forecast'" class="area4" [cardStyle]="'vertical-content'">
+        <ng-container *ngFor="let day of dailyForecast.daily">
+          <app-weather-forecast-day 
+            [dayName]="day.temp.day"
+            [temperatureMin]="day.temp.min"
+            [temperatureMax]="day.temp.max"
+            [wheaterState]="day.weather[0].main"
+          />
+        </ng-container>
+      </app-card-wrapper>
+    </div> -->
+  </main>
+</div>
+
+
+<router-outlet />
